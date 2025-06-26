@@ -6,7 +6,7 @@ const fs = require('fs');
 const FormData = require('form-data');
 const app = express();
 
-const MONDAY_API_TOKEN = 'eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjUzMTQyNzA3NiwiYWFpIjoxMSwidWlkIjo2MTg4MTU3MSwiaWFkIjoiMjAyNS0wNi0yNlQxMToyOTowOS4wMDBaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6MjM4NDYyMTgsInJnbiI6ImV1YzEifQ.vSh2M_7oO5bUaaTlqPKj1QX9SuPIiPeoVn9v4PH2fqg';
+const MONDAY_API_TOKEN = process.env.MONDAY_API_TOKEN;
 const BOARD_ANFRAGEN_ID = 1525698169;
 
 app.use(cors());
