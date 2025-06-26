@@ -4,6 +4,7 @@ const axios = require('axios');
 const cors = require('cors');
 const fs = require('fs');
 const FormData = require('form-data');
+const path = require('path'); // hinzugefügt
 const app = express();
 
 const MONDAY_API_TOKEN = process.env.MONDAY_API_TOKEN;
@@ -12,7 +13,12 @@ const BOARD_ANFRAGEN_ID = 1525698169;
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static(__dirname)); // für logo.png, style.css etc.
 const upload = multer({ dest: 'uploads/' });
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'form.html'));
+});
 
 // 🔧 Hilfsfunktion: Datum formatieren
 function formatDatum(input) {
